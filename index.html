@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'" />
+  <title>Pommy Timer</title>
+  <link rel="icon" href="build/icon.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Mali:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- draggable titlebar + custom minimize/close buttons -->
+    <header class="titlebar">
+      <span class="titlebar-text">Pommy Timer</span>
+      <div class="titlebar-buttons">
+        <button id="btn-minimize" class="win-btn win-btn-min" title="Minimize">
+          <span>─</span>
+        </button>
+        <button id="btn-close" class="win-btn win-btn-close" title="Close">
+          <span>×</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- decorative bear mascot -->
+      <div class="mascot" id="mascot">
+        <svg viewBox="0 0 120 100" width="40" height="33">
+          <ellipse cx="60" cy="60" rx="42" ry="36" fill="#e7b88a"/>
+          <circle cx="20" cy="24" r="14" fill="#e7b88a"/>
+          <circle cx="100" cy="24" r="14" fill="#e7b88a"/>
+          <circle cx="20" cy="24" r="7" fill="#f6d7b8"/>
+          <circle cx="100" cy="24" r="7" fill="#f6d7b8"/>
+          <ellipse cx="60" cy="66" rx="20" ry="15" fill="#f6d7b8"/>
+          <circle cx="45" cy="52" r="4.5" fill="#7a5b45"/>
+          <circle cx="75" cy="52" r="4.5" fill="#7a5b45"/>
+          <ellipse cx="60" cy="64" rx="4" ry="3" fill="#a9744f"/>
+          <path d="M50 74 Q60 82 70 74" stroke="#a9744f" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <ellipse cx="38" cy="66" rx="6" ry="4" fill="#f6a5b3" opacity="0.7"/>
+          <ellipse cx="82" cy="66" rx="6" ry="4" fill="#f6a5b3" opacity="0.7"/>
+        </svg>
+      </div>
+
+      <!-- mode tabs -->
+      <div class="mode-tabs">
+        <button class="mode-tab active" data-mode="work">Focus</button>
+        <button class="mode-tab" data-mode="short">Short Break</button>
+        <button class="mode-tab" data-mode="long">Long Break</button>
+      </div>
+
+      <!-- time display (click to set a custom minutes value) -->
+      <div class="timer-card">
+        <div class="timer-display" id="timer-display" title="Click to set minutes">25:00</div>
+        <input class="timer-input" id="timer-input" type="number" min="1" max="180" hidden />
+        <div class="timer-label" id="timer-label">Let's focus!</div>
+      </div>
+
+      <!-- controls -->
+      <div class="controls">
+        <button id="btn-reset" class="ctrl-btn ctrl-btn-secondary" title="Reset">↺</button>
+        <button id="btn-start" class="ctrl-btn ctrl-btn-primary">Start ▶</button>
+      </div>
+
+      <!-- session dots + count -->
+      <div class="session-row">
+        <div class="session-dots" id="session-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="session-count" id="session-count">0 done</div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
